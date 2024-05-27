@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "861348967263",
+    "project_id": "hajj-app-6ada1",
+    "storage_bucket": "hajj-app-6ada1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:861348967263:android:1153b5467521087a11bcea",
+        "android_client_info": {
+          "package_name": "com.example.hajj_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAkL_wP_jJYv4FoavY8J2DeZq72-AkPS0U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
