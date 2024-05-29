@@ -1,38 +1,48 @@
 import 'dart:async';
 import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hajj_app/models/zeham_model.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
 // ignore: must_be_immutable
-class CustomContainerForZeham extends StatelessWidget {
-  CustomContainerForZeham({super.key});
+class CustomContainerForZeham extends StatefulWidget {
+  const CustomContainerForZeham({super.key});
+
+  @override
+  State<CustomContainerForZeham> createState() =>
+      _CustomContainerForZehamState();
+}
+
+class _CustomContainerForZehamState extends State<CustomContainerForZeham> {
   String? text1;
   String? text2;
   String? text3;
   String? text4;
   int index = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    // Start the timer when the widget is initialized
+    startTimer();
+  }
+
+  void startTimer() {
+    // Create a periodic timer that adds 1 to myVariable every hour
+    Timer.periodic(const Duration(hours: 1), (Timer timer) {
+      setState(() {
+        if (index < 24) {
+          index++;
+        } else {
+          index = 0;
+        }
+      });
+    });
+  }
+
   // @override
-  // void initState() {
-  //   super.initState();
-  //   // Start the timer when the widget is initialized
-  //   startTimer();
-  // }
-
-  // void startTimer() {
-  //   // Create a periodic timer that adds 1 to myVariable every hour
-  //   Timer.periodic(const Duration(hours: 1), (Timer timer) {
-  //     setState(() {
-  //       if(index < 24){
-  //         index++;
-  //       }else{
-  //         index = 0;
-  //       }
-  //     });
-  //   });
-  // }
-
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(

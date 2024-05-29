@@ -1,10 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_islamic_icons/flutter_islamic_icons.dart';
 import 'package:hajj_app/auth/login_page.dart';
 import 'package:hajj_app/constants.dart';
 import 'package:hajj_app/helpers/show_user_data.dart';
 import 'package:hajj_app/services/prayer_times_service.dart';
-import 'package:hajj_app/services/user_service.dart';
 import 'package:hajj_app/views/EmergencyPage.dart';
 import 'package:hajj_app/views/azkar_page.dart';
 import 'package:hajj_app/views/doaa_body.dart';
@@ -16,7 +16,6 @@ import 'package:hajj_app/views/quibla.dart';
 import 'package:hajj_app/views/tasbih_page.dart';
 import 'package:hajj_app/views/update_user_info.dart';
 import 'package:hajj_app/widgets/List_title_drawer.dart';
-import 'package:flutter_islamic_icons/flutter_islamic_icons.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key, required this.userId});
@@ -158,7 +157,7 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
         body: <Widget>[
-           HomeBody(),
+           const HomeBody(),
           const DoaaBody(),
           const MnaskBody(),
           const PlaceBody(),

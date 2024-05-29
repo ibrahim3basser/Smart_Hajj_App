@@ -1,16 +1,12 @@
 import 'dart:async';
-import 'dart:convert';
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:hajj_app/constants.dart';
 import 'package:hajj_app/views/home_body.dart';
 import 'package:hajj_app/widgets/card_for_prayer_time.dart';
-import 'package:http/http.dart' as http;
-import 'package:intl/intl.dart';
 import 'package:prayers_times/prayers_times.dart';
-
 
 class PrayerTimePage extends StatefulWidget {
   static String id = 'PrayerTimePage';
@@ -31,11 +27,12 @@ class _PrayerTimePageState extends State<PrayerTimePage> {
   double? longitude;
   String? city;
   Timer? timer;
-  
 
   @override
   void initState() {
     super.initState();
+    timeRemaining = widget.timeRemaining;
+    nextPrayer = widget.nextPrayer;
     _getLocationAndFetchPrayerTimes();
   }
 
@@ -85,17 +82,18 @@ class _PrayerTimePageState extends State<PrayerTimePage> {
       city = placemarks.first.locality;
     });
   }
+
   DateTime now = DateTime.now();
   void _fetchPrayerTimes() {
     final prayers = PrayerTimes(
-      coordinates: Coordinates(30.033333,31.233334),              //(latitude!, longitude!),
+      coordinates: Coordinates(30.033333, 31.233334), //(latitude!, longitude!),
       calculationParameters: PrayerCalculationMethod.karachi(),
-      locationName: 'Africa/Cairo',     //city!,
+      locationName: 'Africa/Cairo', //city!,
       dateTime: DateTime.now(),
     );
     DateTime tomorrow = DateTime(now.year, now.month, now.day + 1);
     final prayerTimes1 = PrayerTimes(
-      coordinates: Coordinates(30.033333,31.233334),              //(latitude!, longitude!),
+      coordinates: Coordinates(30.033333, 31.233334), //(latitude!, longitude!),
       calculationParameters: PrayerCalculationMethod.karachi(),
       dateTime: tomorrow,
       precision: true,
@@ -126,10 +124,7 @@ class _PrayerTimePageState extends State<PrayerTimePage> {
           timeRemaining = prayerTime.difference(now);
         });
         break;
-      }
-      else{
-
-      }
+      } else {}
     }
   }
 
@@ -176,10 +171,10 @@ class _PrayerTimePageState extends State<PrayerTimePage> {
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-              builder: (context) => HomeBody(
-                // nextPrayer: nextPrayer,
-                // timeRemaining: timeRemaining,
-              ),
+              builder: (context) => const HomeBody(
+                  // nextPrayer: nextPrayer,
+                  // timeRemaining: timeRemaining,
+                  ),
             ),
           );
         },
