@@ -49,7 +49,7 @@ class _PlaceBodyState extends State<PlaceBody> {
                     context,
                     MaterialPageRoute(
                       builder: (context) => View360(
-                        path: 'https://drive.google.com/uc?export=download&id=1FylAnE84GRu8WNM0gKO_wQOJsgVOK6Fu',
+                        path: 'https://drive.google.com/uc?export=download&id=13CO9wDJurAQtWNOZgEt6eT8Zi-KMmbIS',
                       ),
                     ),
                   );
@@ -77,7 +77,7 @@ class _PlaceBodyState extends State<PlaceBody> {
                     context,
                     MaterialPageRoute(
                       builder: (context) => View360(
-                        path: 'https://drive.google.com/uc?export=download&id=1I75m73myN_oKf9G8rQhLIZMd2UdcTKIb',
+                        path: 'https://drive.google.com/uc?export=download&id=1tKL8fXvDW06HCzC0oI8URZUKLyaLlDPC',
                       ),
                     ),
                   );
