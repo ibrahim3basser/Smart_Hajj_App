@@ -56,14 +56,14 @@ class _PlaceBodyState extends State<PlaceBody> {
                 },
               ),
               Container360(
-                backgroundImage: const AssetImage('assets/images/ph.jpg'),
-                text: 'منى',
+                backgroundImage: const AssetImage('assets/images/madina.jpeg'),
+                text: 'المدينه المنورة',
                 onTap: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
                       builder: (context) => View360(
-                        path: 'https://drive.google.com/file/d/1upvVpAYkXBfCL-sonUV2vpqbHVrgQXEw/view?usp=sharing',
+                        path: 'https://drive.google.com/uc?export=download&id=1rTPW3dNcoR2GYYIyEVTcaBPcnUQNqB7d',
                       ),
                     ),
                   );
