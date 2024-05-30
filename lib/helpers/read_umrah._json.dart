@@ -63,7 +63,7 @@ class _ReadUmrahJsonState extends State<ReadUmrahJson> {
                                     textAlign: TextAlign.right,
                                     "  خطوه:  ${umrah[index].name}",
                                     style:
-                                        const TextStyle(fontSize: 18, color: Colors.white),
+                                        const TextStyle(fontSize: 18, color: Colors.black),
                                   ),
                                 ),
                                 Padding(
@@ -72,7 +72,7 @@ class _ReadUmrahJsonState extends State<ReadUmrahJson> {
                                     textAlign: TextAlign.right,
                                     "   الوصف:  ${umrah[index].description}",
                                     style: const TextStyle(
-                                        fontSize: 18, color: Colors.white),
+                                        fontSize: 18, color: Colors.black),
                                   ),
                                 ),
                                 Padding(
@@ -81,7 +81,7 @@ class _ReadUmrahJsonState extends State<ReadUmrahJson> {
                                     textAlign: TextAlign.right,
                                     "التفاصيل:  ${umrah[index].details}",
                                     style: const TextStyle(
-                                        fontSize: 18, color: Colors.white),
+                                        fontSize: 18, color: Colors.black),
                                   ),
                                 ),
                               ],

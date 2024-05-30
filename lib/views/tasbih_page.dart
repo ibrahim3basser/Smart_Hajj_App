@@ -48,14 +48,14 @@ class _TasbihPageState extends State<TasbihPage> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0.0,
-        title: const Text('التسبيح ', style: TextStyle(color: Colors.black, fontSize: 24),),
+        title: const Text('التسبيح ', style: TextStyle(color: KTextBrown, fontSize: 24),),
         centerTitle: true,
-        backgroundColor: const Color(0xff51B1E3),
+        backgroundColor: KPrimaryColor,
       ),
       body: Stack(
         children: <Widget>[
           Image.asset(
-            'assets/images/HD-wallpaper-ramadan-mosque.jpg',
+            'assets/images/sepha.webp',
             fit: BoxFit.cover,
             height: double.infinity,
             width: double.infinity,
@@ -69,23 +69,23 @@ class _TasbihPageState extends State<TasbihPage> {
                 children: <Widget>[
                   ElevatedButton(
                     onPressed: () => _updateSelectedCount(33),
-                    child: const Text('33'),
+                    child: const Text('33',style: TextStyle(color: KTextBrown),),
                   ),
                   ElevatedButton(
                     onPressed: () => _updateSelectedCount(99),
-                    child: const Text('99'),
+                    child: const Text('99',style: TextStyle(color: KTextBrown),),
                   ),
                   ElevatedButton(
                     onPressed: () => _updateSelectedCount(100),
-                    child: const Text('100'),
+                    child: const Text('100',style: TextStyle(color: KTextBrown),),
                   ),
                   ElevatedButton(
                     onPressed: _resetCounter,
-                    child: const Text('Reset'),
+                    child: const Text('Reset',style: TextStyle(color: KTextBrown),),
                   ),
                   Text(
                     'Loop $_loops',
-                    style: const TextStyle(color: Colors.white),
+                    style: const TextStyle(color: Colors.black),
                   ),
                 ],
               ),
@@ -113,21 +113,21 @@ class _TasbihPageState extends State<TasbihPage> {
                           lineWidth: 6.0,
                           percent: percent,
                           backgroundColor: Colors.grey,
-                          progressColor: Colors.white,
+                          progressColor: KIconColor,
                           center: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               const Text(
                               'Click to praise',
                               style: TextStyle(
-                                color: Colors.white
+                                color: KTextBrown
                               ),
                               ),
                               Text(
                                 '${(_counter % _selectedCount)+1}',
                                 style: const TextStyle(
                                   fontSize: 40.0,
-                                  color: Colors.white,
+                                  color: KTextBrown,
                                 ),
                               ),
                             ],

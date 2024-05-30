@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hajj_app/constants.dart';
 import 'package:hajj_app/helpers/read_ayat_forhomebody.dart';
 import 'package:hajj_app/services/prayer_times_service.dart';
 import 'package:hajj_app/widgets/container_for_zeham.dart';
@@ -51,7 +52,7 @@ class _HomeBodyState extends State<HomeBody> {
                         'تنبؤات حالات الزحام ',
                         style: TextStyle(
                           fontSize: 20,
-                          color: Colors.black,
+                          color: KTextColor,
                           fontWeight: FontWeight.bold,
                         ),
                       ),

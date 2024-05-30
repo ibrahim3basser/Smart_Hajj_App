@@ -3,6 +3,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:hajj_app/constants.dart';
 import 'package:hajj_app/models/ayat_model.dart';
 
 class ReadAyatForHomeBody extends StatefulWidget {
@@ -66,7 +67,7 @@ class _ReadAyatForHomeBodyState extends State<ReadAyatForHomeBody> {
               'بَــعـض مــن الآيــات الــقــرآنــيــة',
               style: TextStyle(
                 fontSize: 18,
-                color: Colors.black,
+                color: KTextColor,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -110,7 +111,7 @@ class _ReadAyatForHomeBodyState extends State<ReadAyatForHomeBody> {
                           child: Center(
                             child: Text(
                               ayatList[currentIndex].text,
-                              style: const TextStyle(fontSize: 16, color: Colors.black, fontWeight: FontWeight.bold, height: 1.5),
+                              style: const TextStyle(fontSize: 16, color: KTextColor, fontWeight: FontWeight.bold, height: 1.5),
                               overflow: TextOverflow.ellipsis,
                               maxLines: 3,
                             ),

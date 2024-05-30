@@ -60,25 +60,25 @@ class _HomePageState extends State<HomePage> {
                           ),
                         );
                       },
-                      child: const Icon(Icons.location_on)
+                      child: const Icon(Icons.location_on, color: Colors.brown,)
                     ),
                     const SizedBox(width: 60,),
                     const Padding(
                       padding: EdgeInsets.all(8.0),
                       child: Text(
                         'قافلة المسلمين',
-                        style: TextStyle(color: Colors.black, fontSize: 24),
+                        style: TextStyle(color: KTextColor, fontSize: 24),
                       ),
                     ),
                     const CircleAvatar(
-                      backgroundColor: Colors.black,
+                      backgroundColor: KIconColor,
                       radius: 20,
-                      backgroundImage: AssetImage('assets/images/ji8.jpg'),
+                      backgroundImage: AssetImage('assets/images/Hajj.png'),
                     ),
                   ],
                 ),
                 centerTitle: true,
-                backgroundColor: const Color.fromARGB(255, 156, 149, 87),
+                backgroundColor: KPrimaryColor,
               ),
         endDrawer: Drawer(
             child: ListView(
@@ -91,49 +91,49 @@ class _HomePageState extends State<HomePage> {
             ),
             ListTileDrawer(
               title: 'الصفحه الشخصيه',
-              icon: const Icon(Icons.person),
+              icon: const Icon(Icons.person, color: KIconColor,),
               onTap: () {
                 Navigator.pushNamed(context, UpdateUserProfile.id);
               },
             ),
             ListTileDrawer(
               title: 'مواقيت الصلاه',
-              icon: const Icon(FlutterIslamicIcons.kowtow),
+              icon: const Icon(FlutterIslamicIcons.kowtow, color: KIconColor,),
               onTap: () {
                 Navigator.pushNamed(context, PrayerTimePage.id);
               },
             ),
             ListTileDrawer(
               title: ' اتجاه القبله',
-              icon: const Icon(FlutterIslamicIcons.qibla),
+              icon: const Icon(FlutterIslamicIcons.qibla, color: KIconColor,),
               onTap: () {
                 Navigator.pushNamed(context, QuiblahPage.id);
               },
             ),
             ListTileDrawer(
               title: 'الاذكار',
-              icon: const Icon(FlutterIslamicIcons.hadji),
+              icon: const Icon(FlutterIslamicIcons.hadji, color: KIconColor,),
               onTap: () {
                 Navigator.pushNamed(context, AzkarPage.id);
               },
             ),
             ListTileDrawer(
               title: 'المسبحه',
-              icon: const Icon(FlutterIslamicIcons.tasbih),
+              icon: const Icon(FlutterIslamicIcons.tasbih, color: KIconColor,),
               onTap: () {
                 Navigator.pushNamed(context, TasbihPage.id);
               },
             ),
             ListTileDrawer(
               title: 'المساعدة',
-              icon: const Icon(Icons.help_center_outlined),
+              icon: const Icon(Icons.help_center_outlined, color: KIconColor,),
               onTap: () {
                 Navigator.pushNamed(context, EmergencyPage.id);
               },
             ),
             ListTileDrawer(
               title: 'تسجيل خروج',
-              icon: const Icon(Icons.logout),
+              icon: const Icon(Icons.logout, color: KIconColor,),
               onTap: () async {
                 await FirebaseAuth.instance.signOut();
                 Navigator.pushNamedAndRemoveUntil(
@@ -153,19 +153,19 @@ class _HomePageState extends State<HomePage> {
           destinations: const <Widget>[
             NavigationDestination(
               label: 'الصفحة الرئيسية',
-              icon: Icon(Icons.home),
+              icon: Icon(Icons.home, color: KIconColor,),
             ),
             NavigationDestination(
               label: 'الادعيه ',
-              icon: Icon(FlutterIslamicIcons.takbir),
+              icon: Icon(FlutterIslamicIcons.takbir, color: KIconColor,),
             ),
             NavigationDestination(
               label: 'المناسك ',
-              icon: Icon(FlutterIslamicIcons.kaaba),
+              icon: Icon(FlutterIslamicIcons.kaaba, color: KIconColor,),
             ),
             NavigationDestination(
               label: 'رؤيه الاماكن المقدسه',
-              icon: Icon(FlutterIslamicIcons.qibla),
+              icon: Icon(FlutterIslamicIcons.qibla, color: KIconColor,),
             ),
           ],
         ),

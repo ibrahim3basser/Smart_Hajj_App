@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hajj_app/constants.dart';
 import 'package:hajj_app/views/prayer_time.dart';
 
 // class CustomContainer extends StatelessWidget {
@@ -127,21 +128,21 @@ class CustomContainerprayer extends StatelessWidget {
                 text,
                 style: const TextStyle(
                     fontSize: 24,
-                    color: Color.fromARGB(255, 122, 122, 53),
+                    color: KTextColor,
                     fontWeight: FontWeight.bold),
               ),
               Text(
                 prayerName,
                 style: const TextStyle(
                     fontSize: 24,
-                    color: Color.fromARGB(255, 122, 122, 53),
+                    color: KTextColor,
                     fontWeight: FontWeight.bold),
               ),
               Text(
                 _formatDuration(remainingTime),
                 style: const TextStyle(
                     fontSize: 18,
-                    color: Color.fromARGB(255, 122, 122, 53),
+                    color: KTextColor,
                     fontWeight: FontWeight.bold),
               ),
               const SizedBox(
@@ -150,7 +151,7 @@ class CustomContainerprayer extends StatelessWidget {
               Text(
                 text2,
                 style: const TextStyle(
-                    fontSize: 14, color: Color.fromARGB(255, 122, 122, 53)),
+                    fontSize: 14, color: KTextColor),
               ),
             ],
           ),

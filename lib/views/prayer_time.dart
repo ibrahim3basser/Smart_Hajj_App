@@ -109,7 +109,7 @@ List<MapEntry<String, DateTime>>? prayerTimes ;
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Prayer Times'),
+        title: const Text('Prayer Times',style: const TextStyle(color: KTextBrown),),
         centerTitle: true,
         backgroundColor: KPrimaryColor,
       ),
@@ -119,24 +119,13 @@ List<MapEntry<String, DateTime>>? prayerTimes ;
                 alignment: Alignment.center,
                 width: MediaQuery.sizeOf(context).width,
                 height: MediaQuery.sizeOf(context).height,
-                child: const CircularProgressIndicator(),
+                child: const CircularProgressIndicator(color: KTextBrown,),
               )
             : CardPrayerTime(
                 prayerTimes: prayers,
                 nextPrayer: nextPrayer,
                 timeRemaining: _currentTimeRemaining,
               ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const HomeBody(),
-            ),
-          );
-        },
-        child: const Icon(Icons.arrow_forward),
       ),
     );
   }

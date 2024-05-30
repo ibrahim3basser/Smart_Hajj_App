@@ -212,6 +212,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:hajj_app/constants.dart';
 import 'package:hajj_app/services/user_service.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
@@ -274,14 +275,14 @@ class _UpdateUserProfileState extends State<UpdateUserProfile> {
     String userId = _auth.currentUser!.uid;
 
     return Scaffold(
-      appBar: AppBar(title: Text('Update Profile')),
+      appBar: AppBar(title: const Text('Update Profile', style: TextStyle(color: KTextBrown),)),
       body: StreamBuilder<DocumentSnapshot<Map<String, dynamic>>>(
         stream: FirebaseFirestore.instance.collection('users').doc(userId).snapshots(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator(color: KTextBrown,));
           } else if (snapshot.hasError) {
-            return Center(child: Text('Error loading user data'));
+            return const Center(child: Text('Error loading user data'));
           } else if (!snapshot.hasData || !snapshot.data!.exists) {
             return Center(child: Text('No user data found'));
           } else {
@@ -336,7 +337,7 @@ class _UpdateUserProfileState extends State<UpdateUserProfile> {
                         ? CircularProgressIndicator()
                         : ElevatedButton(
                             onPressed: _updateUserData,
-                            child: Text('Update Profile'),
+                            child: const Text('Update Profile', style: TextStyle(color: KTextBrown),),
                           ),
                   ],
                 ),

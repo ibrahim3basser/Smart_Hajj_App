@@ -3,6 +3,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:hajj_app/constants.dart';
 import 'package:hajj_app/models/zeham_model.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
@@ -74,10 +75,10 @@ class _CustomContainerForZehamState extends State<CustomContainerForZeham> {
                     children: [
                       Column(
                         children: [
-                          Text(checkZehamText(sahnNom, zeham)),
-                          Text(checkZehamText(ardiNom, zeham)),
-                          Text(checkZehamText(sathNom, zeham)),
-                          Text(checkZehamText(madinaNom, zeham)),
+                          Text(checkZehamText(sahnNom, zeham),style: const TextStyle(color: KTextColor),),
+                          Text(checkZehamText(ardiNom, zeham),style: const TextStyle(color: KTextColor),),
+                          Text(checkZehamText(sathNom, zeham),style: const TextStyle(color: KTextColor),),
+                          Text(checkZehamText(madinaNom, zeham),style: const TextStyle(color: KTextColor),),
                         ],
                       ),
                       Column(
@@ -130,10 +131,10 @@ class _CustomContainerForZehamState extends State<CustomContainerForZeham> {
                       ),
                       const Column(
                         children: [
-                          Text('الصحن'),
-                          Text('الاول'),
-                          Text('السطح'),
-                          Text('المدينه '),
+                          Text('الصحن',),
+                          Text('الاول',),
+                          Text('السطح',),
+                          Text('المدينه'),
                         ],
                       ),
                     ],

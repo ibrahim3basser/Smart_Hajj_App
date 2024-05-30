@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hajj_app/constants.dart';
 import 'package:hajj_app/models/message_model.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:intl/intl.dart';
@@ -46,7 +47,7 @@ class _EmergencyPageState extends State<EmergencyPage> {
         backgroundColor: const Color(0xff323232),
         title: const Text(
           'المساعدة',
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: KTextBrown),
         ),
       ),
       body: Container(
@@ -107,9 +108,9 @@ class _EmergencyPageState extends State<EmergencyPage> {
                       iconSize: 30,
                       style: ButtonStyle(
                           backgroundColor:
-                          MaterialStateProperty.all(Colors.black),
-                          foregroundColor:
                           MaterialStateProperty.all(Colors.white),
+                          foregroundColor:
+                          MaterialStateProperty.all(KIconColor),
                           shape: MaterialStateProperty.all(const CircleBorder())),
                       onPressed: () {
                         sendMessage();

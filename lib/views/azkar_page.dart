@@ -32,7 +32,7 @@ class _AzkarPageState extends State<AzkarPage> with SingleTickerProviderStateMix
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('الاذكار'),
+        title: const Text('الاذكار',style:  TextStyle(color: KTextBrown),),
         centerTitle: true,
       ),
       body: Padding(
@@ -72,7 +72,7 @@ class _AzkarPageState extends State<AzkarPage> with SingleTickerProviderStateMix
             Expanded(
               child: TabBarView(
                 controller: _tabController,
-                children: [
+                children: const [
                   ReadAzkarJson(path: 'assets/json/azkar_sabah.json'),
                   ReadAzkarJson(path: 'assets/json/azkar_massa.json'),
                   ReadAzkarJson(path: 'assets/json/PostPrayer_azkar.json'),
@@ -173,7 +173,7 @@ class _AzkarItemState extends State<AzkarItem> {
                   child: Text(
                     textAlign: TextAlign.right,
                     "  الذكر:  ${widget.azkar.zekr}",
-                    style: const TextStyle(fontSize: 18, color: Colors.white),
+                    style: const TextStyle(fontSize: 18, color: Colors.black),
                   ),
                 ),
                 Row(
@@ -205,9 +205,9 @@ class _AzkarItemState extends State<AzkarItem> {
                           percent: progress,
                           center: Text(
                             '$_currentCount / ${widget.azkar.repeat}',
-                            style: const TextStyle(color: Colors.white),
+                            style: const TextStyle(color: Colors.black),
                           ),
-                          progressColor: Colors.teal,
+                          progressColor: KIconColor,
                         ),
                       ),
                     ),
@@ -219,7 +219,7 @@ class _AzkarItemState extends State<AzkarItem> {
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontFamily: 'Pacifico',
-                            color: Colors.white),
+                            color: Colors.black),
                       ),
                     ),
                   ],
@@ -229,7 +229,7 @@ class _AzkarItemState extends State<AzkarItem> {
                   child: Text(
                     textAlign: TextAlign.right,
                     "البركه:  ${widget.azkar.bless}",
-                    style: const TextStyle(fontSize: 18, color: Colors.white),
+                    style: const TextStyle(fontSize: 18, color: Colors.black),
                   ),
                 ),
               ],

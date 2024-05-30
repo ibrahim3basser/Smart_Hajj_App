@@ -61,7 +61,7 @@ class _ReadHajjJsonState extends State<ReadHajjJson> {
                                     textAlign: TextAlign.right,
                                     "  خطوه:  ${hajj[index].name}",
                                     style:
-                                        const TextStyle(fontSize: 18, color: Colors.white),
+                                        const TextStyle(fontSize: 18, color: Colors.black),
                                   ),
                                 ),
                                 Padding(
@@ -70,7 +70,7 @@ class _ReadHajjJsonState extends State<ReadHajjJson> {
                                     textAlign: TextAlign.right,
                                     "   الوصف:  ${hajj[index].description}",
                                     style: const TextStyle(
-                                        fontSize: 18, color: Colors.white),
+                                        fontSize: 18, color: Colors.black),
                                   ),
                                 ),
                                 Padding(
@@ -79,7 +79,7 @@ class _ReadHajjJsonState extends State<ReadHajjJson> {
                                     textAlign: TextAlign.right,
                                     "التفاصيل:  ${hajj[index].details}",
                                     style: const TextStyle(
-                                        fontSize: 18, color: Colors.white),
+                                        fontSize: 18, color: Colors.black),
                                   ),
                                 ),
                               ],

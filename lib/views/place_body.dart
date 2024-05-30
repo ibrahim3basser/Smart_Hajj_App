@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hajj_app/constants.dart';
 import 'package:hajj_app/services/video_player_360.dart';
 import 'package:hajj_app/widgets/container_for_360.dart';
 import 'package:video_360/video_360.dart';
@@ -17,7 +18,7 @@ class _PlaceBodyState extends State<PlaceBody> {
       appBar: AppBar(
         title: const Text(
           'الأماكن المقدسة',
-          style: TextStyle(color: Colors.black, fontSize: 24, fontWeight: FontWeight.bold),
+          style: TextStyle(color: KTextBrown, fontSize: 24, fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
       ),

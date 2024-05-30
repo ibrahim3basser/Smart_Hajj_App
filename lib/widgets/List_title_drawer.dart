@@ -17,7 +17,7 @@ class ListTileDrawer extends StatelessWidget {
                 children: [
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Text(title!, style:const TextStyle(color: KPrimaryColor,fontSize: 20) ),
+                      child: Text(title!, style:const TextStyle(color: KTextColor,fontSize: 20) ),
                     ),
                      icon!,
                     

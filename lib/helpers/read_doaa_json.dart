@@ -59,7 +59,7 @@ class _ReadDoaaJsonState extends State<ReadDoaaJson> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: const Text('الأدعية', style: TextStyle(color: Colors.white)),
+        title: const Text('الأدعية', style: TextStyle(color: KTextBrown)),
         centerTitle: true,
         backgroundColor: KPrimaryColor,
       ),
@@ -93,6 +93,7 @@ class _ReadDoaaJsonState extends State<ReadDoaaJson> {
                                       doaa[index].text,
                                       style: const TextStyle(
                                         fontSize: 18,
+                                        color: KTextBrown
                                       ),
                                     ),
                                   ),
@@ -108,7 +109,7 @@ class _ReadDoaaJsonState extends State<ReadDoaaJson> {
                                     _isPlaying && _playingIndex == index
                                         ? Icons.pause
                                         : Icons.play_arrow,
-                                    color: Colors.orange,
+                                    color: KIconColor,
                                     size: 35,
                                   ),
                                   onPressed: () async {
@@ -137,7 +138,6 @@ class _ReadDoaaJsonState extends State<ReadDoaaJson> {
                   },
                 ),
                 if (_playingIndex != null) _buildAudioPlayer(),
-                SizedBox(height: 2000,),
               ],
             );
           } else if (snapshot.hasError) {
@@ -164,6 +164,9 @@ class _ReadDoaaJsonState extends State<ReadDoaaJson> {
           mainAxisSize: MainAxisSize.min,
           children: [
             Slider(
+              thumbColor: KIconColor,
+              activeColor: KPrimaryColor,              
+              secondaryActiveColor: Colors.white,
               value: _currentPosition.inSeconds.toDouble(),
               max: _totalDuration.inSeconds.toDouble(),
               onChanged: (double value) async {
@@ -178,7 +181,7 @@ class _ReadDoaaJsonState extends State<ReadDoaaJson> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 IconButton(
-                  icon: Icon(Icons.replay_5, color: Colors.orange),
+                  icon: Icon(Icons.replay_5, color: KIconColor),
                   onPressed: () async {
                     final newPosition = _currentPosition - Duration(seconds: 5);
                     await _audioPlayer.seek(newPosition);
@@ -188,7 +191,7 @@ class _ReadDoaaJsonState extends State<ReadDoaaJson> {
                 IconButton(
                   icon: Icon(
                     _isPlaying ? Icons.pause : Icons.play_arrow,
-                    color: Colors.orange,
+                    color: KIconColor,
                     size: 40,
                   ),
                   onPressed: () async {
@@ -206,9 +209,9 @@ class _ReadDoaaJsonState extends State<ReadDoaaJson> {
                   },
                 ),
                 IconButton(
-                  icon: Icon(Icons.forward_5, color: Colors.orange),
+                  icon: const Icon(Icons.forward_5, color: KIconColor),
                   onPressed: () async {
-                    final newPosition = _currentPosition + Duration(seconds: 5);
+                    final newPosition = _currentPosition + const Duration(seconds: 5);
                     await _audioPlayer.seek(newPosition);
                   },
                   iconSize: 30,
@@ -220,12 +223,12 @@ class _ReadDoaaJsonState extends State<ReadDoaaJson> {
               children: [
                 Text(
                   _formatDuration(_currentPosition),
-                  style: const TextStyle(fontSize: 16),
+                  style: const TextStyle(color: KIconColor,fontSize: 16),
                 ),
-                const Text(' / ', style: TextStyle(fontSize: 16)),
+                const Text(' / ', style: TextStyle(color: KIconColor,fontSize: 16)),
                 Text(
                   _formatDuration(_totalDuration),
-                  style: const TextStyle(fontSize: 16),
+                  style: const TextStyle(color: KIconColor,fontSize: 16),
                 ),
               ],
             ),

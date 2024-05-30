@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hajj_app/constants.dart';
 class CustomFormTextField extends StatefulWidget {
   const CustomFormTextField({
     super.key,
@@ -45,7 +46,7 @@ class _CustomFormTextFieldState extends State<CustomFormTextField> {
         decoration: InputDecoration(
           focusedBorder: const OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(50)),
-            borderSide: BorderSide(color: Colors.orange),
+            borderSide: BorderSide(color: Colors.white),
           ),
           border: const OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(50)),

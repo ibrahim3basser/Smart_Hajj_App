@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:hajj_app/constants.dart';
 import 'package:latlong2/latlong.dart';
 
 import '../helpers/permissions/main_permissions_helper.dart';
@@ -67,6 +68,7 @@ class _MapScreenState extends State<MapScreen> {
           fit: BoxFit.scaleDown,
           child: Text(title ?? "Location"),
         ),
+        backgroundColor: KPrimaryColor,
         leading: const BackButton(),
         actions: const [SizedBox(width: 20)],
       ),

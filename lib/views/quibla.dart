@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_qiblah/flutter_qiblah.dart';
+import 'package:hajj_app/constants.dart';
 import 'package:hajj_app/widgets/quiblah_compass.dart';
 
 class QuiblahPage extends StatefulWidget {
@@ -20,7 +21,7 @@ class _QuiblahPageState extends State<QuiblahPage> {
             ColorScheme.fromSwatch().copyWith(secondary: const Color(0xffecce6d)));
     return Scaffold(
       appBar: AppBar(
-        title: const Text("اتجاه القبله"),
+        title: const Text("اتجاه القبله",style: TextStyle(color: KTextBrown),),
         centerTitle: true,
       ),
       body: FutureBuilder(

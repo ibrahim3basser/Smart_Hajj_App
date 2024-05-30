@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hajj_app/constants.dart';
 import 'package:intl/intl.dart';
 import 'package:weather_icons/weather_icons.dart';
 
@@ -26,7 +27,7 @@ class CardPrayerTime extends StatelessWidget {
             blurRadius: 50,
             color: Colors.grey.withOpacity(0.2),
             spreadRadius: 0,
-            offset: Offset(1, 1),
+            offset: const Offset(1, 1),
           ),
         ],
       ),
@@ -43,16 +44,18 @@ class CardPrayerTime extends StatelessWidget {
             ),
           ),
           ListTile(
-            title: Text('Next Prayer: $nextPrayer'),
+            title: Text('Next Prayer: $nextPrayer',style: const TextStyle(color: KTextBrown),),
             subtitle: Text(
-                'Time Remaining: ${_formatDuration(timeRemaining)}'),
+                'Time Remaining: ${_formatDuration(timeRemaining)}',
+                style: const TextStyle(color: KTextBrown),
+                ),
           ),
           Card(
             color: Colors.white,
             elevation: 3,
             child: ListView.builder(
               shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
               itemCount: prayerTimes!.length,
               itemBuilder: (BuildContext context, int index) {
                 String prayerName = prayerTimes!.keys.toList()[index];
@@ -74,18 +77,18 @@ class CardPrayerTime extends StatelessWidget {
                               children: [
                                 Text(
                                   prayerName,
-                                  style: TextStyle(
-                                    color: Colors.black,
+                                  style: const TextStyle(
+                                    color: KTextBrown,
                                     fontSize: 20,
                                   ),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 10,
                                 ),
                                 Text(
                                   prayerTime,
-                                  style: TextStyle(
-                                    color: Colors.grey[850],
+                                  style: const TextStyle(
+                                    color: KTextBrown,
                                     fontSize: 20,
                                   ),
                                 ),
@@ -94,7 +97,7 @@ class CardPrayerTime extends StatelessWidget {
                           ),
                           Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: Icon(prayerIcon[index], color: Colors.orange, size: 35),
+                            child: Icon(prayerIcon[index], color: KIconColor, size: 35),
                           ),
                         ],
                       ),
