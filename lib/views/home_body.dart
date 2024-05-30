@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hajj_app/helpers/read_ayat_forhomebody.dart';
 import 'package:hajj_app/services/prayer_times_service.dart';
-import 'package:hajj_app/views/next_prayer_section.dart';
 import 'package:hajj_app/widgets/container_for_zeham.dart';
+import 'package:hajj_app/widgets/home_body/next_prayer_section.dart';
 
 
 class HomeBody extends StatefulWidget {

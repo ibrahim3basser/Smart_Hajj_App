@@ -10,54 +10,35 @@ class AuthService {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   final FirebaseStorage _storage = FirebaseStorage.instance;
 
-  Future<String?> uploadProfilePicture(String userId, File? imageFile) async {
+
+ Future<void> registerUser(String email, String password, String username) async {
     try {
-      if (imageFile != null) {
-        Reference storageReference = _storage.ref().child('profilePictures/$userId');
-        UploadTask uploadTask = storageReference.putFile(imageFile);
-        TaskSnapshot taskSnapshot = await uploadTask;
-        String downloadURL = await taskSnapshot.ref.getDownloadURL();
-        return downloadURL;
+      UserCredential userCredential = await _auth.createUserWithEmailAndPassword(email: email, password: password);
+      User? user = userCredential.user;
+
+      if (user != null) {
+        String defaultPhotoUrl = 'assets/images/default-avatar-profile-in-trendy-style-for-social-media-user-icon-700-228654852.jpg';
+
+        // Create a new document in Firestore with the initial profile photo
+        await _firestore.collection('users').doc(user.uid).set({
+          'name': username,
+          'email': email,
+          'profilePicture': defaultPhotoUrl
+        });
+
+        print('User registered with default profile photo');
+      } else {
+        throw Exception('User registration failed');
       }
-    } catch (e) {
-      print('Error uploading profile picture: $e');
-    }
-    return null;
-  }
-
-   // Function to pick image from gallery
-  void pickImage(Function(File) onImagePicked) async {
-    try {
-      final picker = ImagePicker();
-      final pickedImage = await picker.pickImage(source: ImageSource.gallery);
-      if (pickedImage != null) {
-        onImagePicked(File(pickedImage.path));
-      }
-    } catch (e) {
-      print('Error picking image: $e');
-    }
-  }
-
-  Future<void> registerUser(String name, String email, String password, File? profileImage) async {
-    try {
-      UserCredential userCredential = await _auth.createUserWithEmailAndPassword(
-        email: email,
-        password: password,
-      );
-
-      String? profileImageUrl = await uploadProfilePicture(userCredential.user!.uid, profileImage);
-
-      await _firestore.collection('users').doc(userCredential.user!.uid).set({
-        'name': name,
-        'email': email,
-        'profileImageUrl': profileImageUrl,
-        // Add other user details here
-      });
+    } on FirebaseAuthException catch (e) {
+      print('Error registering user: ${e.code} - ${e.message}');
+      throw e;
     } catch (e) {
       print('Error registering user: $e');
-      throw e; // Propagate the error for handling in UI
+      throw e;
     }
   }
 
   // Other authentication-related functions...
 }
+//https://www.kindpng.com/picc/m/24-248253_user-profile-default-image-png-clipart-png-download.png

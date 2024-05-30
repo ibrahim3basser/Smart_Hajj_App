@@ -9,6 +9,7 @@ import 'package:hajj_app/views/EmergencyPage.dart';
 import 'package:hajj_app/views/azkar_page.dart';
 import 'package:hajj_app/views/doaa_body.dart';
 import 'package:hajj_app/views/home_body.dart';
+import 'package:hajj_app/views/map_page.dart';
 import 'package:hajj_app/views/mnask_body.dart';
 import 'package:hajj_app/views/place_body.dart';
 import 'package:hajj_app/views/prayer_time.dart';
@@ -47,17 +48,29 @@ class _HomePageState extends State<HomePage> {
             ? null
             : AppBar(
                 automaticallyImplyLeading: false,
-                title: const Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                title: Row(
+                  //mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Padding(
+                    GestureDetector(
+                      onTap: (){
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => MapScreen(),
+                          ),
+                        );
+                      },
+                      child: const Icon(Icons.location_on)
+                    ),
+                    const SizedBox(width: 60,),
+                    const Padding(
                       padding: EdgeInsets.all(8.0),
                       child: Text(
                         'قافلة المسلمين',
                         style: TextStyle(color: Colors.black, fontSize: 24),
                       ),
                     ),
-                    CircleAvatar(
+                    const CircleAvatar(
                       backgroundColor: Colors.black,
                       radius: 20,
                       backgroundImage: AssetImage('assets/images/ji8.jpg'),
