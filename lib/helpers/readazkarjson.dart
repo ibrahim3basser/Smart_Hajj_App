@@ -39,7 +39,8 @@ class _ReadAzkarJsonState extends State<ReadAzkarJson> {
                             child: Text(
                               textAlign: TextAlign.right,
                               "  الذكر:  ${azkar[index].zekr}",
-                              style: const TextStyle(fontSize: 18, color: Colors.white),
+                              style: const TextStyle(
+                                  fontSize: 18, color: Colors.white),
                             ),
                           ),
                           Row(
@@ -69,7 +70,8 @@ class _ReadAzkarJsonState extends State<ReadAzkarJson> {
                             child: Text(
                               textAlign: TextAlign.right,
                               "البركه:  ${azkar[index].bless}",
-                              style: const TextStyle(fontSize: 18, color: Colors.white),
+                              style: const TextStyle(
+                                  fontSize: 18, color: Colors.white),
                             ),
                           ),
                         ],

@@ -50,7 +50,7 @@ class _DoaaBodyState extends State<DoaaBody> {
                   padding: EdgeInsets.all(8.0),
                   child: Text(
                     'فيديو لتوضيح اهميه الدعاء وادابه.',
-                    style: TextStyle(color: Colors.brown,fontSize: 20, fontWeight: FontWeight.bold),
+                    style: TextStyle(color: Colors.black,fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                 ),
                 Padding(
@@ -79,7 +79,7 @@ class _DoaaBodyState extends State<DoaaBody> {
               ],
             );
           } else {
-            return const Center(child: CircularProgressIndicator(color: KTextBrown,));
+            return const Center(child: CircularProgressIndicator(color: KPrimaryColor,));
           }
         },
       ),
@@ -104,7 +104,7 @@ class _VideoControls extends StatelessWidget {
         VideoProgressIndicator(
           controller,
           allowScrubbing: true,
-          colors: VideoProgressColors(
+          colors: const VideoProgressColors(
             playedColor: Colors.orange,
             bufferedColor: Colors.white,
             backgroundColor: Colors.grey,

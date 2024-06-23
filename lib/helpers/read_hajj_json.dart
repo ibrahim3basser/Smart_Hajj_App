@@ -17,12 +17,11 @@ class ReadHajjJson extends StatefulWidget {
 class _ReadHajjJsonState extends State<ReadHajjJson> {
   @override
   Widget build(BuildContext context) {
-    return 
-    SingleChildScrollView(
+    return SingleChildScrollView(
       child: Column(
         children: [
-             Padding(
-            padding: const EdgeInsets.only(top: 8.0,left: 8.0,right: 8.0),
+          Padding(
+            padding: const EdgeInsets.only(top: 8.0, left: 8.0, right: 8.0),
             child: Container(
               width: MediaQuery.of(context)
                   .size
@@ -60,8 +59,8 @@ class _ReadHajjJsonState extends State<ReadHajjJson> {
                                   child: Text(
                                     textAlign: TextAlign.right,
                                     "  خطوه:  ${hajj[index].name}",
-                                    style:
-                                        const TextStyle(fontSize: 18, color: Colors.black),
+                                    style: const TextStyle(
+                                        fontSize: 18, color: Colors.white),
                                   ),
                                 ),
                                 Padding(
@@ -70,7 +69,7 @@ class _ReadHajjJsonState extends State<ReadHajjJson> {
                                     textAlign: TextAlign.right,
                                     "   الوصف:  ${hajj[index].description}",
                                     style: const TextStyle(
-                                        fontSize: 18, color: Colors.black),
+                                        fontSize: 18, color: Colors.white),
                                   ),
                                 ),
                                 Padding(
@@ -79,7 +78,7 @@ class _ReadHajjJsonState extends State<ReadHajjJson> {
                                     textAlign: TextAlign.right,
                                     "التفاصيل:  ${hajj[index].details}",
                                     style: const TextStyle(
-                                        fontSize: 18, color: Colors.black),
+                                        fontSize: 18, color: Colors.white),
                                   ),
                                 ),
                               ],

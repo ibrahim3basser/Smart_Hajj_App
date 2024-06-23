@@ -18,7 +18,7 @@ class _PlaceBodyState extends State<PlaceBody> {
       appBar: AppBar(
         title: const Text(
           'الأماكن المقدسة',
-          style: TextStyle(color: KTextBrown, fontSize: 24, fontWeight: FontWeight.bold),
+          style: TextStyle(color: Colors.black, fontSize: 24, fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
       ),
@@ -35,7 +35,7 @@ class _PlaceBodyState extends State<PlaceBody> {
                     context,
                     MaterialPageRoute(
                       builder: (context) => View360(
-                        path: 'https://drive.google.com/uc?export=download&id=1ygAlbkwVTGD6BpvUGbOhKpKa4f1lupXr',
+                        path: 'https://drive.google.com/uc?export=download&id=1ZKLQI9KZ-4aVfoEkr3-HhOMS9H73T9z0',
                         
                       ),
                     ),

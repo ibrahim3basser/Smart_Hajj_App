@@ -23,12 +23,12 @@ class PrayerTimePage extends StatefulWidget {
 
 class _PrayerTimePageState extends State<PrayerTimePage> {
   final  prayers = {
-        "Fajr": "04:38",
-        "Dhuhr": "12:53",
-        "Asr": "16:29",
-        "Maghrib": "19:51",
-        "Isha": "21:07",
-        "Fajr": "04:38",
+        "الفجر": "04:09",
+        "الظهر": "12:58",
+        "العصر": "16:33",
+        "المغرب": "20:00",
+        "العشاء": "21:34",
+        "الفجر": "04:09",
       };
   String nextPrayer = '';
   late Timer _timer;
@@ -109,7 +109,8 @@ List<MapEntry<String, DateTime>>? prayerTimes ;
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Prayer Times',style: const TextStyle(color: KTextBrown),),
+        foregroundColor: Colors.white,
+        title: const Text('مواقيت الصلاة',style: const TextStyle(color: Colors.white),),
         centerTitle: true,
         backgroundColor: KPrimaryColor,
       ),
@@ -119,7 +120,7 @@ List<MapEntry<String, DateTime>>? prayerTimes ;
                 alignment: Alignment.center,
                 width: MediaQuery.sizeOf(context).width,
                 height: MediaQuery.sizeOf(context).height,
-                child: const CircularProgressIndicator(color: KTextBrown,),
+                child: const CircularProgressIndicator(color: KPrimaryColor,),
               )
             : CardPrayerTime(
                 prayerTimes: prayers,

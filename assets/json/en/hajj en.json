@@ -1,0 +1,69 @@
+ [
+  {
+    "name": "Ihram",
+    "description": "Entering into the state of ihram by performing the intention and wearing forbidden clothes.",
+    "details": [
+      "Make the intention to perform Hajj.",
+      "Wear forbidden clothing: two white robes for men and simple white clothing for women."
+    ]
+  },
+  {
+    "name": "tawaf",
+    "description": "Performing Tawaf, which includes circumambulating the Kaaba seven times.",
+    "details": [
+      "Start from the Black Stone and go in the counterclockwise direction.",
+      "Complete seven circuits around the Kaaba.",
+      "Reciting supplications and prayers during Tawaf"
+    ]
+  },
+  {
+    "name": "quest",
+    "description": "Performing the sa'y between Safa and Marwa seven times.",
+    "details": [
+      "Start from Safa and move towards Marwa.",
+      "He walked quickly between Safa and Marwa, on a specific path.",
+      "Complete seven cycles of sa’i, and end at Al-Marwah.",
+      "Reciting supplications and prayers during the Sa'y"
+    ]
+  },
+  {
+    "name": "Mona",
+    "description": "Stay in Mina and spend the day and night there.",
+    "details": [
+      "Arrival to Mina on the eighth day of Dhu al-Hijjah.",
+      "Performing the five daily prayers in Mina.",
+      "Spend the night in Mina and pray to God."
+    ]
+  },
+  {
+    "name": "Arafa",
+    "description": "Standing in Arafat and participating in worship and supplication.",
+    "details": [
+      "Arrival to Arafat on the ninth of Dhul-Hijjah before noon.",
+      "Performing the noon and afternoon prayers together and shortening them.",
+      "Standing in Arafat, seeking forgiveness and supplication.",
+      "Listening to the Imam's sermon.",
+      "Continue praying until sunset."
+    ]
+  },
+  {
+    "name": "Muzdalifah",
+    "description": "Spending the night in Muzdalifah and collecting pebbles to stone the Jamarat.",
+    "details": [
+      "Arrival to Muzdalifah after sunset from Arafat.",
+      "Collecting pebbles to throw stones at Jamarat.",
+      "Performing the Maghrib and Isha prayers together and shortening them.",
+      "Spend the night in Muzdalifah and remember God,"
+    ]
+  },
+  {
+    "name": "Throwing at Jamarat",
+    "description": "Performing the Tawaf of Jamarat at the Great Aqaba, the Middle Aqaba, and the Lesser Aqaba in Mina.",
+    "details":[
+      "Throwing at Jamrat al-Kubra with seven pebbles",
+      "Supplication and seeking forgiveness while throwing stones.",
+      "Go to the middle Aqaba and throw seven pebbles at it.",
+      "Go to the Minor Aqaba and throw seven pebbles at it."
+    ]
+  }
+]       

@@ -1,8 +1,9 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:hajj_app/constants.dart';
-import 'package:hajj_app/helpers/show_snack_bar.dart';
+import 'package:hajj_app/services/auth_service.dart';
 import 'package:hajj_app/widgets/custom_button.dart';
 import 'package:hajj_app/widgets/custom_text_field.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
@@ -47,7 +48,7 @@ class _RegisterState extends State<Register> {
   bool isLoading = false;
 
   GlobalKey<FormState> formKey = GlobalKey();
-  // bool obscureText = true;
+
   @override
   Widget build(BuildContext context) {
     return ModalProgressHUD(
@@ -73,22 +74,29 @@ class _RegisterState extends State<Register> {
                     backgroundImage: AssetImage('assets/images/Hajj.png'),
                     backgroundColor: Colors.white,
                   ),
-                  const Text(
-                    'muslim',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 24,
-                        fontFamily: 'pacifico'),
+                  Text(
+                    'الحج الذكى',
+                    style: GoogleFonts.lemonada(
+                        textStyle: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    )),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.all(8.0),
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(right: 20, top: 10, bottom: 10),
                     child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        Text('Register',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 24,
-                            )),
+                        Text(
+                          ' حساب جديد',
+                          style: GoogleFonts.lemonada(
+                              textStyle: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                          )),
+                        )
                       ],
                     ),
                   ),
@@ -97,105 +105,119 @@ class _RegisterState extends State<Register> {
                     onChanged: (value) {
                       email = value;
                     },
-                    labelText: 'Username',
+                    labelText: 'اسم المستخدم',
                   ),
                   CustomFormTextField(
                     controller: emailController,
                     onChanged: (value) {
                       email = value;
                     },
-                    labelText: 'Email',
+                    labelText: 'البريد الالكترونى',
                   ),
                   CustomFormTextField(
-                    obscureText: true,
                     controller: passwordController,
+                    obscureText:
+                        true, // Pass the true value to enable the eye icon
                     onChanged: (value) {
                       password = value;
                     },
-                    labelText: 'password',
-                    // icon: IconButton(
-                    //   onPressed:(){
-                    //     obscureText = false;
-                    //   },
-                    //   icon: Icon(Icons.visibility),
-                    //   ),
+                    labelText: 'الرقم السرى',
                   ),
                   CustomFormTextField(
-                    obscureText: true,
                     controller: confirmPasswordController,
+                    obscureText:
+                        true, // Pass the true value to enable the eye icon
                     onChanged: (value) {
                       confirmpassword = value;
                     },
-                    labelText: 'Confirm Password',
-                    // icon: IconButton(
-                    //   onPressed:(){
-                    //     obscureText = false;
-                    //   },
-                    //   icon: Icon(Icons.visibility),
-                    //   ),
+                    labelText: ' تأكيد كلمه السر',
                   ),
                   const SizedBox(
                     height: 5,
                   ),
                   CustomButton(
-                      onTap: () async {
-                        if (isValid()) {
-                          setState(() {
-                            isLoading = true;
-                          });
-                          try {
-                            UserCredential user = await FirebaseAuth.instance
-                                .createUserWithEmailAndPassword(
-                                    email: email!, password: password!);
-                            await FirebaseFirestore.instance
-                                .collection('users')
-                                .doc(user.user!.uid)
-                                .set({
-                              'name': usernameController.text,
-                              'email': emailController.text,
-                              // Add other user details here
-                            });
-                          } on FirebaseAuthException catch (e) {
-                            if (e.code == 'weak-password') {
-                              // ignore: use_build_context_synchronously
-                              showSnackBar(context,
-                                  'The password provided is too weak.');
-                            } else if (e.code == 'email-already-in-use') {
-                              // ignore: use_build_context_synchronously
-                              showSnackBar(context,
-                                  'The account already exists for that email.');
-                            }
-                          } catch (e) {
-                            // ignore: use_build_context_synchronously
-                            showSnackBar(context, 'there was an error');
+                    onTap: () async {
+                      if (isValid()) {
+                        setState(() {
+                          isLoading = true;
+                        });
+                        try {
+                          AuthService authService = AuthService();
+                          authService.registerUser(emailController.text,
+                              passwordController.text, usernameController.text);
+                        } on FirebaseAuthException catch (e) {
+                          if (e.code == 'weak-password') {
+                            AwesomeDialog(
+                              context: context,
+                              dialogType: DialogType.error,
+                              animType: AnimType.bottomSlide,
+                              title: 'خطأ',
+                              desc: 'كلمه السر ضعيفه',
+                              btnOkOnPress: () {},
+                            ).show();
+                          } else if (e.code == 'email-already-in-use') {
+                            AwesomeDialog(
+                              context: context,
+                              dialogType: DialogType.error,
+                              animType: AnimType.bottomSlide,
+                              title: 'خطأ',
+                              desc: 'البريد الالكترونى مستخدم بالفعل',
+                              btnOkOnPress: () {},
+                            ).show();
                           }
-                          setState(() {
-                            isLoading = false;
-                          });
-                          // ignore: use_build_context_synchronously
-                          showSnackBar(context, 'Account created successfully');
-                          // ignore: use_build_context_synchronously
-                          Navigator.pop(context, 'LoginPage');
-                        } else {
-                          showSnackBar(context, 'Password does not match');
+                        } catch (e) {
+                          AwesomeDialog(
+                            context: context,
+                            dialogType: DialogType.error,
+                            animType: AnimType.bottomSlide,
+                            title: 'خطأ',
+                            desc: 'حدث خطأ ما',
+                            btnOkOnPress: () {},
+                          ).show();
                         }
-                      },
-                      text: 'Sign Up'),
+                        setState(() {
+                          isLoading = false;
+                        });
+
+                        AwesomeDialog(
+                          context: context,
+                          dialogType: DialogType.success,
+                          animType: AnimType.bottomSlide,
+                          title: 'تم بنجاح',
+                          desc: 'تم تسجيل الحساب بنجاح',
+                          btnOkOnPress: () {
+                            // ignore: use_build_context_synchronously
+                            Navigator.pop(context, 'LoginPage');
+                          },
+                        ).show();
+                      } else {
+                        AwesomeDialog(
+                          context: context,
+                          dialogType: DialogType.error,
+                          animType: AnimType.bottomSlide,
+                          title: 'خطأ',
+                          desc: 'كلمه السر غير مطابقه',
+                          btnOkOnPress: () {},
+                        ).show();
+                      }
+                    },
+                    text: 'تسجيل',
+                  ),
                   const SizedBox(
                     height: 10,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Text('already have an account?',
-                          style: TextStyle(color: Colors.white)),
                       GestureDetector(
                         onTap: () {
                           Navigator.pop(context, 'LoginPage');
                         },
-                        child: const Text('Login',
+                        child: const Text(' تسجيل الدخول',
                             style: TextStyle(color: Colors.white)),
-                      )
+                      ),
+                      const Text(' لديك حساب بالفعل ؟ ',
+                          style: TextStyle(color: Colors.white)),
                     ],
                   ),
                 ],
@@ -206,12 +228,6 @@ class _RegisterState extends State<Register> {
       ),
     );
   }
-
-  // // ignore: non_constant_identifier_names
-  // Future<void> Auth() async {
-  //   UserCredential user = await FirebaseAuth.instance
-  //       .createUserWithEmailAndPassword(email: email!, password: password!);
-  // }
 
   bool isValid() {
     if ((passwordController.text == confirmPasswordController.text) &&

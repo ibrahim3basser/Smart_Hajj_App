@@ -39,14 +39,13 @@ class _ReadUmrahJsonState extends State<ReadUmrahJson> {
             ),
           ),
           FutureBuilder(
-            
               future: readJson(widget.path),
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
                   List<UmrahModel> umrah = snapshot.data as List<UmrahModel>;
                   return ListView.builder(
                     physics: const NeverScrollableScrollPhysics(),
-                     shrinkWrap: true,
+                    shrinkWrap: true,
                     itemCount: umrah.length,
                     itemBuilder: (context, index) {
                       return Container(
@@ -62,8 +61,8 @@ class _ReadUmrahJsonState extends State<ReadUmrahJson> {
                                   child: Text(
                                     textAlign: TextAlign.right,
                                     "  خطوه:  ${umrah[index].name}",
-                                    style:
-                                        const TextStyle(fontSize: 18, color: Colors.black),
+                                    style: const TextStyle(
+                                        fontSize: 18, color: Colors.white),
                                   ),
                                 ),
                                 Padding(
@@ -72,7 +71,7 @@ class _ReadUmrahJsonState extends State<ReadUmrahJson> {
                                     textAlign: TextAlign.right,
                                     "   الوصف:  ${umrah[index].description}",
                                     style: const TextStyle(
-                                        fontSize: 18, color: Colors.black),
+                                        fontSize: 18, color: Colors.white),
                                   ),
                                 ),
                                 Padding(
@@ -81,7 +80,7 @@ class _ReadUmrahJsonState extends State<ReadUmrahJson> {
                                     textAlign: TextAlign.right,
                                     "التفاصيل:  ${umrah[index].details}",
                                     style: const TextStyle(
-                                        fontSize: 18, color: Colors.black),
+                                        fontSize: 18, color: Colors.white),
                                   ),
                                 ),
                               ],

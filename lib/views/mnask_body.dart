@@ -56,7 +56,7 @@ class _MnaskBodyState extends State<MnaskBody>
                     borderRadius: BorderRadius.circular(
                       25.0,
                     ),
-                    color: KPrimaryColor,
+                    color: Colors.blueGrey,
                   ),
                   labelColor: Colors.white,
                   unselectedLabelColor: Colors.black,

@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:hajj_app/constants.dart';
-class CustomFormTextField extends StatefulWidget {
-  const CustomFormTextField({
-    super.key,
-    this.labelText,
-    this.onChanged,
-    this.obscureText = false,
-    required this.controller,
-    this.icon,
-  });
 
-  final IconButton? icon;
+class CustomFormTextField extends StatefulWidget {
+  const CustomFormTextField(
+      {super.key,
+      this.labelText,
+      this.onChanged,
+      this.obscureText = false,
+      required this.controller});
+
   final String? labelText;
   final Function(String)? onChanged;
-  final bool obscureText;
+  final bool? obscureText;
   final TextEditingController controller;
 
   @override
@@ -21,12 +18,18 @@ class CustomFormTextField extends StatefulWidget {
 }
 
 class _CustomFormTextFieldState extends State<CustomFormTextField> {
-  late bool _isObscured;
+  bool _obscureText = true;
 
   @override
   void initState() {
     super.initState();
-    _isObscured = widget.obscureText;
+    _obscureText = widget.obscureText ?? true;
+  }
+
+  void _toggleVisibility() {
+    setState(() {
+      _obscureText = !_obscureText;
+    });
   }
 
   @override
@@ -35,10 +38,10 @@ class _CustomFormTextFieldState extends State<CustomFormTextField> {
       padding: const EdgeInsets.all(8.0),
       child: TextFormField(
         controller: widget.controller,
-        obscureText: _isObscured,
-        validator: (data) {
-          if (data!.isEmpty) {
-            return 'This field is required';
+        obscureText: _obscureText,
+        validator: (value) {
+          if (value == null || value.isEmpty) {
+            return 'هذا الحقل مطلوب';
           }
           return null;
         },
@@ -49,26 +52,27 @@ class _CustomFormTextFieldState extends State<CustomFormTextField> {
             borderSide: BorderSide(color: Colors.white),
           ),
           border: const OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(50)),
-            borderSide: BorderSide(color: Colors.white),
-          ),
+              borderRadius: BorderRadius.all(Radius.circular(50)),
+              borderSide: BorderSide(
+                color: Colors.white,
+              )),
           enabledBorder: const OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(50)),
-            borderSide: BorderSide(color: Colors.white),
+            borderSide: BorderSide(
+              color: Colors.white,
+            ),
           ),
           hintText: widget.labelText,
-          hintStyle: const TextStyle(color: Colors.white),
-          suffixIcon: widget.obscureText
+          hintStyle: const TextStyle(
+            color: Colors.white,
+          ),
+          suffixIcon: widget.obscureText == true
               ? IconButton(
                   icon: Icon(
-                    _isObscured ? Icons.visibility : Icons.visibility_off,
+                    _obscureText ? Icons.visibility : Icons.visibility_off,
                     color: Colors.white,
                   ),
-                  onPressed: () {
-                    setState(() {
-                      _isObscured = !_isObscured;
-                    });
-                  },
+                  onPressed: _toggleVisibility,
                 )
               : null,
         ),

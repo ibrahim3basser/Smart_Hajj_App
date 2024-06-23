@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hajj_app/constants.dart';
 
 // ignore: must_be_immutable
 class CustomButton extends StatelessWidget {
@@ -14,7 +13,7 @@ class CustomButton extends StatelessWidget {
         width:120,
         height: 50,
         decoration: BoxDecoration(
-          color: KIconColor,
+          color: Colors.blueGrey[900],
           borderRadius: BorderRadius.circular(8),
         ),
         child:  Center(

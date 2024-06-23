@@ -66,14 +66,6 @@ class UserService {
     return null;
   }
 
-  //    Future<void> updateUser(String userId, Map<String, dynamic> data) async {
-  //   await _firestore.collection('users').doc(userId).update(data);
-  // }
-
-  //  Stream<DocumentSnapshot<Map<String, dynamic>>> getUserDataStream(String userId) {
-  //   return _firestore.collection('users').doc(userId).snapshots();
-  // }
-  
     static Future<File?> pickImage() async {
     try {
       final picker = ImagePicker();
@@ -86,6 +78,7 @@ class UserService {
     }
     return null;
   }
+
 
 
    static Future<Map<String, dynamic>> getUserData(String userId) async {

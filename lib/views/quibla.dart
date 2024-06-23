@@ -21,7 +21,7 @@ class _QuiblahPageState extends State<QuiblahPage> {
             ColorScheme.fromSwatch().copyWith(secondary: const Color(0xffecce6d)));
     return Scaffold(
       appBar: AppBar(
-        title: const Text("اتجاه القبله",style: TextStyle(color: KTextBrown),),
+        title: const Text("اتجاه القبله",style: TextStyle(color: Colors.black),),
         centerTitle: true,
       ),
       body: FutureBuilder(

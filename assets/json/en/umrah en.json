@@ -1,0 +1,70 @@
+[
+  {
+      "name": "Ihram",
+      "description": "When you arrive in Mecca, enter the state of ihram by performing the intention and wearing the forbidden clothes.",
+      "details": [
+        "Make the intention to perform Umrah.",
+        "Wear forbidden clothing: Ihram for men and modest clothing for women."
+      ]
+    },
+    {
+      "name": "tawaf",
+      "description": "Perform Tawaf, which includes circumambulating the Kaaba in seven rounds.",
+      "details": [
+        "Start from the Black Stone and go in the counterclockwise direction.",
+        "Complete seven circuits around the Kaaba.",
+        "Reciting supplications and prayers during Tawaf."
+      ]
+    },
+    {
+      "name": "quest",
+      "description": "Perform the sa'y between Safa and Marwa seven times.",
+      "details": [
+        "Start from Safa and move towards Marwa.",
+        "He walked quickly between Safa and Marwa, on a specific path.",
+        "Complete seven cycles of sa’i, and end at Al-Marwah.",
+        "Reciting supplications and prayers during the Sa'y."
+      ]
+    },
+    {
+      "name": "shortening hair or shaving",
+      "description": "Cut your hair short or shave it after sa'y.",
+      "details": [
+        "Short your head hair by half an inch, or shave it completely.",
+        "This step is for men only, while women are satisfied with shortening their hair."
+      ]
+    },
+    {
+      "name": "ascetic circumambulation",
+      "description": "Perform the ritual circumambulation after cutting the hair or shaving.",
+      "details": [
+        "Perform seven rounds of circumambulation around the Kaaba.",
+        "Reciting supplications and prayers during Tawaf."
+      ]
+    },
+    {
+      "name": "ascetic quest",
+      "description": "Perform the sa'y between Safa and Marwa seven times.",
+      "details": [
+        "Perform seven rounds of sa’i between Safa and Marwa.",
+        "Reciting supplications and prayers during the Sa'y."
+      ]
+    },
+    {
+      "name": "shortening hair or ascetic shaving",
+      "description": "Cut your hair short or shave it after the ascetic quest.",
+      "details": [
+        "Short your head hair by half an inch, or shave it completely.",
+        "This applies to both men and women."
+      ]
+    },
+    {
+      "name": "Farewell Tawaf",
+      "description": "Perform the farewell tawaf before leaving Mecca.",
+      "details": [
+        "Perform seven rounds of circumambulation around the Kaaba.",
+        "Reciting supplications and prayers during Tawaf.",
+        "Courting and praying for farewell from a sincere heart."
+      ]
+    }
+]

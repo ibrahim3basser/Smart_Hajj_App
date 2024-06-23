@@ -7,6 +7,8 @@
         android:label="hajj_app"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+        <meta-data android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDWZMm53Euuzmg7H0UGbY5TFN-O7LBmf8Y"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"

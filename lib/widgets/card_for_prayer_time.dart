@@ -44,10 +44,14 @@ class CardPrayerTime extends StatelessWidget {
             ),
           ),
           ListTile(
-            title: Text('Next Prayer: $nextPrayer',style: const TextStyle(color: KTextBrown),),
+            title: Text('الصلاة القادمة: $nextPrayer',
+                    style: const TextStyle(color: KTextBrown),
+                    textAlign: TextAlign.end,
+                  ),
             subtitle: Text(
-                'Time Remaining: ${_formatDuration(timeRemaining)}',
+                'الوقت المتبقي: ${_formatDuration(timeRemaining)}',
                 style: const TextStyle(color: KTextBrown),
+                textAlign: TextAlign.end,
                 ),
           ),
           Card(

@@ -59,7 +59,8 @@ class _ReadDoaaJsonState extends State<ReadDoaaJson> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: const Text('الأدعية', style: TextStyle(color: KTextBrown)),
+        foregroundColor: Colors.white,
+        title: const Text('الأدعية', style: TextStyle(color: Colors.white)),
         centerTitle: true,
         backgroundColor: KPrimaryColor,
       ),
@@ -79,59 +80,59 @@ class _ReadDoaaJsonState extends State<ReadDoaaJson> {
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Expanded(
-                                flex: 3,
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Directionality(
-                                    textDirection: TextDirection.rtl,
-                                    child: Text(
-                                      textAlign: TextAlign.right,
-                                      overflow: TextOverflow.clip,
-                                      doaa[index].text,
-                                      style: const TextStyle(
-                                        fontSize: 18,
-                                        color: KTextBrown
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Expanded(
+                                  flex: 3,
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Directionality(
+                                      textDirection: TextDirection.rtl,
+                                      child: Text(
+                                        textAlign: TextAlign.right,
+                                        overflow: TextOverflow.clip,
+                                        doaa[index].text,
+                                        style: const TextStyle(
+                                            fontSize: 18, color: Colors.black),
                                       ),
                                     ),
                                   ),
                                 ),
-                              ),
-                              Container(
-                                decoration: BoxDecoration(
-                                  color: Colors.grey[300],
-                                  borderRadius: BorderRadius.circular(25.0),
-                                ),
-                                child: IconButton(
-                                  icon: Icon(
-                                    _isPlaying && _playingIndex == index
-                                        ? Icons.pause
-                                        : Icons.play_arrow,
-                                    color: KIconColor,
-                                    size: 35,
+                                Container(
+                                  decoration: BoxDecoration(
+                                    color: Colors.grey[300],
+                                    borderRadius: BorderRadius.circular(25.0),
                                   ),
-                                  onPressed: () async {
-                                    if (_isPlaying && _playingIndex == index) {
-                                      await _audioPlayer.pause();
-                                      setState(() {
-                                        _isPlaying = false;
-                                        _playingIndex = null;
-                                      });
-                                    } else {
-                                      await _audioPlayer.stop(); // Stop any previous playing audio
-                                      await _audioPlayer.play(AssetSource(doaa[index].audio));
-                                      setState(() {
-                                        _isPlaying = true;
-                                        _playingIndex = index;
-                                      });
-                                    }
-                                  },
+                                  child: IconButton(
+                                    icon: Icon(
+                                      _isPlaying && _playingIndex == index
+                                          ? Icons.pause
+                                          : Icons.play_arrow,
+                                      color: KPrimaryColor,
+                                      size: 35,
+                                    ),
+                                    onPressed: () async {
+                                      if (_isPlaying &&
+                                          _playingIndex == index) {
+                                        await _audioPlayer.pause();
+                                        setState(() {
+                                          _isPlaying = false;
+                                          _playingIndex = null;
+                                        });
+                                      } else {
+                                        await _audioPlayer
+                                            .stop(); // Stop any previous playing audio
+                                        await _audioPlayer.play(
+                                            AssetSource(doaa[index].audio));
+                                        setState(() {
+                                          _isPlaying = true;
+                                          _playingIndex = index;
+                                        });
+                                      }
+                                    },
+                                  ),
                                 ),
-                              ),
-                            ]
-                          ),
+                              ]),
                         ),
                       ),
                     );
@@ -146,7 +147,7 @@ class _ReadDoaaJsonState extends State<ReadDoaaJson> {
             );
           } else {
             return const Center(
-              child: CircularProgressIndicator(),
+              child: CircularProgressIndicator(color: KPrimaryColor,),
             );
           }
         },
@@ -164,8 +165,8 @@ class _ReadDoaaJsonState extends State<ReadDoaaJson> {
           mainAxisSize: MainAxisSize.min,
           children: [
             Slider(
-              thumbColor: KIconColor,
-              activeColor: KPrimaryColor,              
+              thumbColor: KPrimaryColor,
+              activeColor: KPrimaryColor,
               secondaryActiveColor: Colors.white,
               value: _currentPosition.inSeconds.toDouble(),
               max: _totalDuration.inSeconds.toDouble(),
@@ -181,7 +182,7 @@ class _ReadDoaaJsonState extends State<ReadDoaaJson> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 IconButton(
-                  icon: Icon(Icons.replay_5, color: KIconColor),
+                  icon: const Icon(Icons.replay_5, color: KPrimaryColor),
                   onPressed: () async {
                     final newPosition = _currentPosition - Duration(seconds: 5);
                     await _audioPlayer.seek(newPosition);
@@ -191,7 +192,7 @@ class _ReadDoaaJsonState extends State<ReadDoaaJson> {
                 IconButton(
                   icon: Icon(
                     _isPlaying ? Icons.pause : Icons.play_arrow,
-                    color: KIconColor,
+                    color: KPrimaryColor,
                     size: 40,
                   ),
                   onPressed: () async {
@@ -209,9 +210,10 @@ class _ReadDoaaJsonState extends State<ReadDoaaJson> {
                   },
                 ),
                 IconButton(
-                  icon: const Icon(Icons.forward_5, color: KIconColor),
+                  icon: const Icon(Icons.forward_5, color: KPrimaryColor),
                   onPressed: () async {
-                    final newPosition = _currentPosition + const Duration(seconds: 5);
+                    final newPosition =
+                        _currentPosition + const Duration(seconds: 5);
                     await _audioPlayer.seek(newPosition);
                   },
                   iconSize: 30,
@@ -223,12 +225,13 @@ class _ReadDoaaJsonState extends State<ReadDoaaJson> {
               children: [
                 Text(
                   _formatDuration(_currentPosition),
-                  style: const TextStyle(color: KIconColor,fontSize: 16),
+                  style: const TextStyle(color: KPrimaryColor, fontSize: 16),
                 ),
-                const Text(' / ', style: TextStyle(color: KIconColor,fontSize: 16)),
+                const Text(' / ',
+                    style: TextStyle(color: KPrimaryColor, fontSize: 16)),
                 Text(
                   _formatDuration(_totalDuration),
-                  style: const TextStyle(color: KIconColor,fontSize: 16),
+                  style: const TextStyle(color: KPrimaryColor, fontSize: 16),
                 ),
               ],
             ),

@@ -1,3 +1,119 @@
+// import 'package:flutter/material.dart';
+// import 'package:hajj_app/constants.dart';
+// import 'package:hajj_app/helpers/readazkarjson.dart';
+
+// class AzkarPage extends StatefulWidget {
+//   static String id = 'AzkarPage';
+
+//   const AzkarPage({super.key});
+//   @override
+//   // ignore: library_private_types_in_public_api
+//   _AzkarPageState createState() => _AzkarPageState();
+// }
+
+// class _AzkarPageState extends State<AzkarPage>
+//     with SingleTickerProviderStateMixin {
+//   late TabController _tabController;
+
+
+//   @override
+//   void initState() {
+//     _tabController = TabController(length: 3, vsync: this);
+//     super.initState();
+//   }
+
+//   @override
+//   void dispose() {
+//     super.dispose();
+//     _tabController.dispose();
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//         appBar: AppBar(
+//           title: const Text(
+//             'الاذكار',
+//           ),
+//           centerTitle: true,
+//         ),
+//         body: Padding(
+//           padding: const EdgeInsets.all(8.0),
+//           child: Column(
+//             children: [
+//               // give the tab bar a height [can change hheight to preferred height]
+//               Container(
+//                 height: 45,
+//                 decoration: BoxDecoration(
+//                   color: Colors.grey[300],
+//                   borderRadius: BorderRadius.circular(
+//                     25.0,
+//                   ),
+//                 ),
+//                 child: TabBar(
+//                   controller: _tabController,
+//                   // give the indicator a decoration (color and border radius)
+//                   indicator: BoxDecoration(
+//                     borderRadius: BorderRadius.circular(
+//                       25.0,
+//                     ),
+//                     color: KPrimaryColor,
+//                   ),
+//                   labelColor: Colors.white,
+//                   unselectedLabelColor: Colors.black,
+//                   tabs: const [
+//                     // first tab [you can add an icon using the icon property]
+//                     Padding(
+//                       padding: EdgeInsets.all(8.0),
+//                       child: Tab(
+//                         text: 'اذكار الصباح',
+//                       ),
+//                     ),
+
+//                     // second tab [you can add an icon using the icon property]
+//                     Padding(
+//                       padding: EdgeInsets.all(8.0),
+//                       child: Tab(
+//                         text: 'اذكار المساء',
+//                       ),
+//                     ),
+//                     Padding(
+//                       padding: EdgeInsets.all(8.0),
+//                       child: Tab(
+//                         text: 'اذكار بعد الصلاه',
+//                       ),
+//                     )
+//                   ],
+//                 ),
+//               ),
+//               // tab bar view here
+//               Expanded(
+//                 child: TabBarView(
+//                   controller: _tabController,
+//                   children: [
+//                     // first tab bar view widget
+//                     ReadAzkarJson(
+//                       path: 'assets/json/azkar_sabah.json',
+//                     ),
+
+//                     //second tab bar view widget
+//                     ReadAzkarJson(
+//                       path: 'assets/json/azkar_massa.json',
+                      
+//                     ),
+//                     // third tab bar view widget
+//                     ReadAzkarJson(
+//                       path: 'assets/json/PostPrayer_azkar.json',
+//                     ),
+//                   ],
+//                 ),
+//               ),
+//             ],
+//           ),
+//         ));
+//   }
+// }
+
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -32,7 +148,7 @@ class _AzkarPageState extends State<AzkarPage> with SingleTickerProviderStateMix
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('الاذكار',style:  TextStyle(color: KTextBrown),),
+        title: const Text('الاذكار',style:  TextStyle(color: KTextColor),),
         centerTitle: true,
       ),
       body: Padding(
@@ -163,7 +279,7 @@ class _AzkarItemState extends State<AzkarItem> {
         }
       },
         child: Card(
-          color: KPrimaryColor,
+          color: KTextWhite,
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
@@ -207,7 +323,7 @@ class _AzkarItemState extends State<AzkarItem> {
                             '$_currentCount / ${widget.azkar.repeat}',
                             style: const TextStyle(color: Colors.black),
                           ),
-                          progressColor: KIconColor,
+                          progressColor: Colors.blueGrey,
                         ),
                       ),
                     ),
