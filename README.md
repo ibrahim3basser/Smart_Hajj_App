@@ -1,4 +1,4 @@
-# hajj_app
+# Smart_Hajj_App
 
 A new Flutter project.
 
